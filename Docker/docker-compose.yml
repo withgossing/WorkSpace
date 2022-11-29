@@ -1,0 +1,41 @@
+# 기본적인 설정및 셋팅이 완료된 컨테이너 파일을 기본으로 동일한 네트워크에 실행 가능하도록 설정
+# compose version
+version: "3.8"
+
+services:
+# 서비스의 이름 ('go-worker')
+  go-worker:
+  # 사용할 이미지
+    image: ubuntu:latest
+
+    # 컨테이너 이름
+    container_name: go-01
+
+    # 포트 설정 (외부:내부)
+    ports:
+      - 82:80
+      - 3308:3306
+      - 5002:5000
+      - 8890:8888
+
+    # 환경변수 설정
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: "1230"
+      MYSQL_DB: godb
+
+    # 명령어 실행
+#    command:
+    # DB 한글 인코딩 설정
+#      - --character-set-server=utf8mb4
+#      - --collation-server=utf8mb4_unicode_ci
+#      - sh -c "yarn install && yarn run dev"
+    
+    # 컨테이너 디렉토리 설정
+    working_dir: /home/go-worker
+
+    # 마운트 디렉토리 설정
+    volumes:
+      - /Users/gossing/development/docker/volumes/home/go-worker:/home/go-worker
+    

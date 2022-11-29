@@ -1,0 +1,19 @@
+FROM alpine:latest
+
+LABEL maintainer = "withgossing@gmail.com"
+
+RUN apk update
+RUN apk add --no-cache bash
+RUN apk add --no-cache shadow
+RUN chsh -s /bin/bash
+
+
+FROM alpine:3.14
+RUN apk add --no-cache mysql-client
+ENTRYPOINT ["mysql"]
+
+FROM ubuntu:20.04
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends mysql-client \
+    && rm -rf /var/lib/apt/lists/*
+ENTRYPOINT ["mysql"]
