@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.gori'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '19'
+sourceCompatibility = '17'	// java version
 
 configurations {
 	compileOnly {
@@ -15,7 +15,7 @@ configurations {
 }
 
 repositories {
-	mavenCentral()
+	mavenCentral()			// Dependencies Library
 }
 
 dependencies {

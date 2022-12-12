@@ -3,6 +3,8 @@ package com.gori.bank.service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gori.bank.model.UserEntity;
+
 @RestController
 public class WelcomeController {
 
@@ -13,6 +15,14 @@ public class WelcomeController {
 
   @GetMapping("/welcome")
   public String welCome() {
-		return "WELCOME";
+
+    UserEntity userEntity = new UserEntity();
+    userEntity.setUserId("withGossing");
+    userEntity.setUserName("KO SEUNGYOUN");
+
+    String reValue = userEntity.getUserName();
+    System.out.println(reValue);
+    
+		return reValue;
 	}
 }
