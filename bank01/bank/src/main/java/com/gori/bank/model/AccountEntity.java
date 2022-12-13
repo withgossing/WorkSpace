@@ -5,7 +5,8 @@ import lombok.Setter;
 
 @Getter @Setter
 public class AccountEntity {
-    private String AccountId;
-    private String AccountName;
-    private String UserId;
+    private String accountId;
+    private String accountName;
+    private String userId;
+
 }
