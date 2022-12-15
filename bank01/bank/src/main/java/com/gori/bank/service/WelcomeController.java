@@ -3,7 +3,7 @@ package com.gori.bank.service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gori.bank.model.UserEntity;
+import com.gori.bank.entity.UserEntity;
 
 @RestController
 public class WelcomeController {
@@ -14,7 +14,7 @@ public class WelcomeController {
     }
 
     @GetMapping("/welcome")
-    public String welCome() {
+    public UserEntity welCome() {
         UserEntity userEntity = new UserEntity();
         userEntity.setUserId("withGossing");
         userEntity.setUserName("KO SEUNGYOUN");
@@ -23,6 +23,6 @@ public class WelcomeController {
         System.out.println(userEntity.getUserId());
         System.out.println(userEntity.getUserName());
         System.out.println(userEntity.getUserEmail());
-        return userEntity.getUserName();
+        return userEntity;
     }
 }

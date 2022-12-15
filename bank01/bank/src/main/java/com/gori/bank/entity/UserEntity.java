@@ -1,4 +1,4 @@
-package com.gori.bank.model;
+package com.gori.bank.entity;
 
 import java.sql.Date;
 

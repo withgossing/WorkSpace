@@ -1,4 +1,4 @@
-package com.gori.bank.model;
+package com.gori.bank.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,5 +8,4 @@ public class AccountEntity {
     private String accountId;
     private String accountName;
     private String userId;
-
 }
