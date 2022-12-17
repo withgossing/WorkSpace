@@ -1,4 +1,4 @@
-package com.gori.bank;
+package com.goritown.bank;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

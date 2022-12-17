@@ -1,6 +1,4 @@
-package com.gori.bank.entity;
-
-import java.sql.Date;
+package com.goritown.bank.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,5 +9,5 @@ public class UserEntity {
     private String userName;
     private String userPassword;
     private String userEmail;
-    private Date signUpDate;
+    private String signUpDate;
 }

@@ -1,20 +1,14 @@
-package com.gori.bank.service;
+package com.goritown.bank.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gori.bank.entity.UserEntity;
+import com.goritown.bank.entity.UserEntity;
 
 @RestController
 public class WelcomeController {
-
-    @GetMapping("/")
-    public String index() {
-        return "Welcome GORI BANK";
-    }
-
     @GetMapping("/welcome")
-    public UserEntity welCome() {
+    public UserEntity welcome() {
         UserEntity userEntity = new UserEntity();
         userEntity.setUserId("withGossing");
         userEntity.setUserName("KO SEUNGYOUN");
