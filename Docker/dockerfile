@@ -24,7 +24,8 @@ RUN set -eux; \
     vim \
     net-tools \
     figlet \
-    python3-pip
+    python3-pip \
+    openjdk-17-jdk
 
 # groupadd : 사용자 그룹 추가 (apps)
 # useradd : 사용자 추가 (apps 그룹에 worker 사용자 추가)
