@@ -1,9 +1,10 @@
-package com.goritown.bank.entity;
+package com.goritown.bank.model;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
+@Setter
 public class TransactionEntity {
     private AccountEntity account;
 
