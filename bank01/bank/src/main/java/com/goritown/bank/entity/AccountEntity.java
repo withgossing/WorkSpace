@@ -1,4 +1,4 @@
-package com.goritown.bank.model;
+package com.goritown.bank.entity;
 
 import lombok.Getter;
 import lombok.Setter;
