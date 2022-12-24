@@ -47,13 +47,13 @@ RUN set -eux; \
 WORKDIR /home/worker
 VOLUME /home/worker
 
-EXPOSE 22 80 3306 5000 8888
+EXPOSE 22 80 3000 3306 5000 8080 8888
 
 # ENTRYPOINT ["/bin/bash"]
 # CMD 의 경우 1회만 실행되며 중복일 경우 마지막 CMD 만 실행
 
 # docker build -t withgossing/worker01 /Users/gossing/Documents/WorkSpace/Docker
-# docker run --name worker01 -d -it -p 23:22 -p 81:80 -p 3307:3306 -p 5001:5000 -p 8889:8888 -v /Users/gossing/Documents/WorkSpace/worker01:/home/worker withgossing/worker01 /bin/bash
+# docker run --name worker01 -d -it -p 23:22 -p 81:80 -p 3001:3000 -p 3307:3306 -p 5001:5000 -p 8081:8080 -p 8889:8888 -v /Users/gossing/Documents/WorkSpace/worker01:/home/worker withgossing/worker01 /bin/bash
 # docker exec -itu 0 worker01 bash
 
 # RUN yum -y install python3-pip filewalld net-tools mariadb
