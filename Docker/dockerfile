@@ -25,7 +25,9 @@ RUN set -eux; \
     net-tools \
     figlet \
     python3-pip \
-    openjdk-17-jdk
+    openjdk-17-jdk \
+    nodejs \
+    npm
 
 # groupadd : 사용자 그룹 추가 (apps)
 # useradd : 사용자 추가 (apps 그룹에 worker 사용자 추가)
@@ -47,7 +49,7 @@ RUN set -eux; \
 WORKDIR /home/worker
 VOLUME /home/worker
 
-EXPOSE 22 80 3000 3306 5000 8080 8888
+EXPOSE 22 80 3306 8080 8888
 
 # ENTRYPOINT ["/bin/bash"]
 # CMD 의 경우 1회만 실행되며 중복일 경우 마지막 CMD 만 실행
