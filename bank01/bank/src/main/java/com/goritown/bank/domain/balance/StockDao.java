@@ -1,5 +1,6 @@
-package com.goritown.bank.domain.record;
-import com.goritown.bank.domain.Account;
+package com.goritown.bank.domain.balance;
+
+import com.goritown.bank.domain.AccountDao;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,15 +14,12 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Stock {
+public class StockDao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 8, nullable = false)
-    private String recordDate;
-    
-    private Account account;
+    private AccountDao account;
     
     @Column(nullable = false)
     private String market;
@@ -33,8 +31,7 @@ public class Stock {
     private Number balance;
 
     @Builder
-    public Stock(String recordDate, Account account, String market, String symbol, Number balance) {
-        this.recordDate = recordDate;
+    public StockDao(AccountDao account, String market, String symbol, Number balance) {
         this.account = account;
         this.market = market;
         this.symbol = symbol;

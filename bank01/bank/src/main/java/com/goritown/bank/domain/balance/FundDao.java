@@ -1,4 +1,5 @@
-package com.goritown.bank.domain;
+package com.goritown.bank.domain.balance;
+import com.goritown.bank.domain.AccountDao;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,23 +13,23 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Transaction {
+public class FundDao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private Account account;
-
-    @Column(nullable = false)
-    private String transactionDate;
     
-    @Column(nullable = false)
-    private Number transactionAmount;
+    private AccountDao account;
+
+    @Column(length = 20, nullable = false)
+    private String symbol;
+
+    @Column(length = 20, nullable = false)
+    private Number balance;
 
     @Builder
-    public Transaction(Account account, String transactionDate, Number transactionAmount) {
+    public FundDao(AccountDao account, String symbol, Number balance) {
         this.account = account;
-        this.transactionDate = transactionDate;
-        this.transactionAmount = transactionAmount;
+        this.symbol = symbol;
+        this.balance = balance;
     }
 }

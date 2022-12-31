@@ -1,7 +1,5 @@
-package com.goritown.bank.domain.record;
-import org.hibernate.engine.jdbc.env.spi.IdentifierCaseStrategy;
-
-import com.goritown.bank.domain.Account;
+package com.goritown.bank.domain.balance;
+import com.goritown.bank.domain.AccountDao;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,15 +13,12 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Cash {
+public class CashDao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @Column(length = 8, nullable = false)
-    private String recordDate;
 
-    private Account account;
+    private AccountDao account;
     
     @Column(length = 3, nullable = false)
     private String currency;
@@ -32,8 +27,7 @@ public class Cash {
     private Number balance;
 
     @Builder
-    public Cash(String recordDate, Account account, String currency, Number balance) {
-        this.recordDate = recordDate;
+    public CashDao(AccountDao account, String currency, Number balance) {
         this.account = account;
         this.currency = currency;
         this.balance = balance;

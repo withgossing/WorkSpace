@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Customer {
+public class CustomerDao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,7 +32,7 @@ public class Customer {
     private String signUpDate;
 
     @Builder
-    public Customer(String customerId, String customerName, String customerPassword, String customerEmail, String signUpDate) {
+    public CustomerDao(String customerId, String customerName, String customerPassword, String customerEmail, String signUpDate) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.customerPassword = customerPassword;

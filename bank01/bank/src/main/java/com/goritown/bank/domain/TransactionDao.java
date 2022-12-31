@@ -12,23 +12,23 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Account {
+public class TransactionDao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 128)
-    private String accountName;
+    private AccountDao account;
 
-    @Column(length = 8)
-    private String signUpDate;
-
-    private Customer customer;
+    @Column(nullable = false)
+    private String transactionDate;
+    
+    @Column(nullable = false)
+    private Number transactionAmount;
 
     @Builder
-    public Account(String accountName, String signUpDate, Customer customer) {
-        this.accountName = accountName;
-        this.signUpDate = signUpDate;
-        this.customer = customer;
+    public TransactionDao(AccountDao account, String transactionDate, Number transactionAmount) {
+        this.account = account;
+        this.transactionDate = transactionDate;
+        this.transactionAmount = transactionAmount;
     }
 }
