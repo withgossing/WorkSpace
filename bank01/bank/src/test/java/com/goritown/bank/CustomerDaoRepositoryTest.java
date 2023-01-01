@@ -2,6 +2,7 @@ package com.goritown.bank;
 
 import java.util.List;
 
+import org.junit.jupiter.api.AfterEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -14,16 +15,17 @@ public class CustomerDaoRepositoryTest {
     @Autowired
     CustomerDaoRepository customerDaoRepository;
 
-    public void cleanup() {
+    @AfterEach
+    public void cleanUp() {
         customerDaoRepository.deleteAll();
     }
 
-    public void loadCustomer() {
-        String customerId = "";
-        String customerName = "";
-        String customerPassword = "";
-        String customerEmail = "";
-        String signUpDate = "";
+    public void loadEntity() {
+        String customerId = "goribank";
+        String customerName = "GoRi";
+        String customerPassword = "bank1234!";
+        String customerEmail = "goribank@naver.com";
+        String signUpDate = "20230102";
 
         customerDaoRepository.save(CustomerDao.builder()
                                 .customerId(customerId)

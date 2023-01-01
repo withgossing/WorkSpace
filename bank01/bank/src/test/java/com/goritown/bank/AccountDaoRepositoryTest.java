@@ -2,6 +2,8 @@ package com.goritown.bank;
 
 import java.util.List;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -14,13 +16,15 @@ public class AccountDaoRepositoryTest {
     @Autowired
     AccountDaoRepository accountDaoRepository;
 
-    public void cleanup() {
+    @AfterEach
+    public void cleanUp() {
         accountDaoRepository.deleteAll();
     }
 
-    public void loadAccount() {
-        String accountName = "";
-        String signUpDate = "";
+    @Test
+    public void loadEntity() {
+        String accountName = "1234567801";
+        String signUpDate = "20230102";
         Long customerKey = (long) 0;
 
         accountDaoRepository.save(AccountDao.builder()
