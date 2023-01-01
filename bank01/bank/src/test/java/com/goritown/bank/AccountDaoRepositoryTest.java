@@ -32,5 +32,7 @@ public class AccountDaoRepositoryTest {
         List<AccountDao>accountDaoList = accountDaoRepository.findAll();
 
         AccountDao accountDao = accountDaoList.get(0);
+
+        System.out.println(accountDao);
     }
 }

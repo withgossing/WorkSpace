@@ -36,5 +36,7 @@ public class CustomerDaoRepositoryTest {
         List<CustomerDao>customerDaoList = customerDaoRepository.findAll();
 
         CustomerDao customerDao = customerDaoList.get(0);
+
+        System.out.println(customerDao);
     }
 }

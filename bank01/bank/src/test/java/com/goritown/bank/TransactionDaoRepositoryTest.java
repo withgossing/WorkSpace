@@ -33,5 +33,7 @@ public class TransactionDaoRepositoryTest {
 
         TransactionDao transactionDao = transactionDaoList.get(0);
 
+        System.out.println(transactionDao);
+
     }
 }
