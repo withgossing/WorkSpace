@@ -15,20 +15,21 @@ import lombok.NoArgsConstructor;
 public class AccountDao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long key;
 
-    @Column(length = 128)
+    @Column(length = 64, nullable = false)
     private String accountName;
 
-    @Column(length = 8)
+    @Column(length = 8, nullable = false)
     private String signUpDate;
 
-    private CustomerDao customer;
+    @Column(nullable = false)
+    private Long customerKey;
 
     @Builder
-    public AccountDao(String accountName, String signUpDate, CustomerDao customer) {
+    public AccountDao(String accountName, String signUpDate, Long customerKey) {
         this.accountName = accountName;
         this.signUpDate = signUpDate;
-        this.customer = customer;
+        this.customerKey = customerKey;
     }
 }

@@ -15,9 +15,9 @@ import lombok.NoArgsConstructor;
 public class CustomerDao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long key;
 
-    @Column(length = 64, nullable = false)
+    @Column(length = 32, nullable = false)
     private String customerId;
 
     @Column(length = 64, nullable = false)
@@ -29,6 +29,7 @@ public class CustomerDao {
     @Column(length = 64, nullable = false)
     private String customerEmail;
 
+    @Column(length = 8, nullable = false)
     private String signUpDate;
 
     @Builder
