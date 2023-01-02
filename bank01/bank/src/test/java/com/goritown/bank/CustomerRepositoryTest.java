@@ -7,17 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.goritown.bank.domain.CustomerDao;
-import com.goritown.bank.domain.CustomerDaoRepository;
+import com.goritown.bank.domain.CustomerRepository;
 
 @SpringBootTest
-public class CustomerDaoRepositoryTest {
+public class CustomerRepositoryTest {
 
     @Autowired
-    CustomerDaoRepository customerDaoRepository;
+    CustomerRepository customerRepository;
 
     @AfterEach
     public void cleanUp() {
-        customerDaoRepository.deleteAll();
+        customerRepository.deleteAll();
     }
 
     public void loadEntity() {
@@ -27,7 +27,7 @@ public class CustomerDaoRepositoryTest {
         String customerEmail = "goribank@naver.com";
         String signUpDate = "20230102";
 
-        customerDaoRepository.save(CustomerDao.builder()
+        customerRepository.save(CustomerDao.builder()
                                 .customerId(customerId)
                                 .customerName(customerName)
                                 .customerPassword(customerPassword)
@@ -35,9 +35,9 @@ public class CustomerDaoRepositoryTest {
                                 .signUpDate(signUpDate)
                                 .build());
 
-        List<CustomerDao>customerDaoList = customerDaoRepository.findAll();
+        List<CustomerDao>customerList = customerRepository.findAll();
 
-        CustomerDao customerDao = customerDaoList.get(0);
+        CustomerDao customerDao = customerList.get(0);
 
         System.out.println(customerDao);
     }

@@ -7,17 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.goritown.bank.domain.TransactionDao;
-import com.goritown.bank.domain.TransactionDaoRepository;
+import com.goritown.bank.domain.TransactionRepository;
 
 @SpringBootTest
-public class TransactionDaoRepositoryTest {
+public class TransactionRepositoryTest {
 
     @Autowired
-    TransactionDaoRepository transactionDaoRepository;
+    TransactionRepository transactionRepository;
 
     @AfterEach
     public void cleanUp() {
-        transactionDaoRepository.deleteAll();
+        transactionRepository.deleteAll();
     }
 
     public void loadEntity() {
@@ -25,15 +25,15 @@ public class TransactionDaoRepositoryTest {
         Number transactionAmount = 0;
         Long accountKey = (long) 0;
 
-        transactionDaoRepository.save(TransactionDao.builder()
+        transactionRepository.save(TransactionDao.builder()
                                     .transactionDate(transactionDate)
                                     .transactionAmount(transactionAmount)
                                     .accountKey(accountKey)
                                     .build());
 
-        List<TransactionDao>transactionDaoList = transactionDaoRepository.findAll();
+        List<TransactionDao>transactionList = transactionRepository.findAll();
 
-        TransactionDao transactionDao = transactionDaoList.get(0);
+        TransactionDao transactionDao = transactionList.get(0);
 
         System.out.println(transactionDao);
 
