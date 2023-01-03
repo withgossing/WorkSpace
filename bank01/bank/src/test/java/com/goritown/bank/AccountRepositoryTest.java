@@ -1,13 +1,19 @@
 package com.goritown.bank;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.goritown.bank.domain.AccountDao;
 import com.goritown.bank.domain.AccountRepository;
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
 public class AccountRepositoryTest {
     
@@ -24,7 +30,7 @@ public class AccountRepositoryTest {
     @BeforeEach
     public void setUp() {
         String accountName = "1234567801";
-        String signUpDate = "20230102";
+        String signUpDate = "20230103";
         Long customerKey = (long) 0;
 
         accountDao = AccountDao
@@ -35,12 +41,13 @@ public class AccountRepositoryTest {
                         .build();
     }
 
+    @Test
     public void testSave() {
         System.out.println(">>> SetUp accountDao: " + accountDao.toString());
 
         // given
         String accountName = "1234567801";
-        String signUpDate = "20230102";
+        String signUpDate = "20230103";
         Long customerKey = (long) 0;
 
         accountDao = AccountDao
@@ -57,12 +64,8 @@ public class AccountRepositoryTest {
         System.out.println(">>> Saved accountDao: " + savedAccountDao);
 
         // then
-        // assertThat()
-        // assertThat(savedAccountDao.getKey()).isNotNull();
-        // assertThat(savedAccountDao.getAccountName().isEqualTo();
-        //  getOrderCode()).isEqualTo(randomCode);
-        // assertThat(savedAccountDao.getOrderUsername()).isEqualTo("test_user");
-        // assertThat(savedAccountDao.getShopName()).isEqualTo("test_shop");
-        // assertThat(savedAccountDao.getId()).isGreaterThan(0);
+        assertThat(savedAccountDao.getKey()).isNotNull();
+        assertThat(savedAccountDao.getAccountName()).isEqualTo("1234567801");
+        assertThat(savedAccountDao.getSignUpDate()).isEqualTo("20230103");
     }
 }
