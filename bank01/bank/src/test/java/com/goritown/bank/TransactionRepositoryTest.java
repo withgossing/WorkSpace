@@ -31,13 +31,13 @@ public class TransactionRepositoryTest {
     public void setUp() {
         String transactionDate = "20230103";
         Number transactionAmount = 0;
-        Long accountKey = (long) 0;
+        Long accountPid = (long) 0;
 
         transactionDao = TransactionDao
                             .builder()
                             .transactionDate(transactionDate)
                             .transactionAmount(transactionAmount)
-                            .accountKey(accountKey)
+                            .accountPid(accountPid)
                             .build();
     }
 
@@ -48,12 +48,12 @@ public class TransactionRepositoryTest {
         // givn
         String transactionDate = "20230103";
         Number transactionAmount = 100;
-        Long accountKey = (long) 0;
+        Long accountPid = (long) 0;
 
         transactionRepository.save(TransactionDao.builder()
                                     .transactionDate(transactionDate)
                                     .transactionAmount(transactionAmount)
-                                    .accountKey(accountKey)
+                                    .accountPid(accountPid)
                                     .build());
 
         System.out.println(">>> Origin transactionDao: " + transactionDao.toString());
@@ -63,7 +63,7 @@ public class TransactionRepositoryTest {
         System.out.println(">>> Saved transactionDao: " + savedTransactionDao);
 
         // when
-        assertThat(savedTransactionDao.getKey()).isNotNull();
+        assertThat(savedTransactionDao.getPid()).isNotNull();
         assertThat(savedTransactionDao.getTransactionDate()).isEqualTo("20230103");
         assertThat(savedTransactionDao.getTransactionAmount()).isEqualTo(100);
     }

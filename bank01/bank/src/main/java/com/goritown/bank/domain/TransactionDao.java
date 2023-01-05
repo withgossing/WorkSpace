@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class TransactionDao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long key;
+    private Long pid;
 
     @Column(length = 8, nullable = false)
     private String transactionDate;
@@ -24,12 +24,12 @@ public class TransactionDao {
     private Number transactionAmount;
 
     @Column(nullable = false)
-    private Long accountKey;
+    private Long accountPid;
 
     @Builder
-    public TransactionDao(String transactionDate, Number transactionAmount, Long accountKey) {
+    public TransactionDao(String transactionDate, Number transactionAmount, Long accountPid) {
         this.transactionDate = transactionDate;
         this.transactionAmount = transactionAmount;
-        this.accountKey = accountKey;
+        this.accountPid = accountPid;
     }
 }

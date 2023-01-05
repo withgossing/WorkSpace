@@ -71,7 +71,7 @@ public class CustomerRepositoryTest {
         System.out.println(">>> Saved customerDao: " + savedCustomerDao);
 
         // then
-        assertThat(savedCustomerDao.getKey()).isNotNull();
+        assertThat(savedCustomerDao.getPid()).isNotNull();
         assertThat(savedCustomerDao.getCustomerId()).isEqualTo("goribank");
         assertThat(savedCustomerDao.getCustomerName()).isEqualTo("GoRi");
         assertThat(savedCustomerDao.getCustomerPassword()).isEqualTo("bank1234");

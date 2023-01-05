@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class CustomerDao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long key;
+    private Long pid;
 
     @Column(length = 32, nullable = false)
     private String customerId;

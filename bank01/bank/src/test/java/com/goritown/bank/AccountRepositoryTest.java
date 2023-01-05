@@ -31,13 +31,13 @@ public class AccountRepositoryTest {
     public void setUp() {
         String accountName = "1234567801";
         String signUpDate = "20230103";
-        Long customerKey = (long) 0;
+        Long customerPid = (long) 0;
 
         accountDao = AccountDao
                         .builder()
                         .accountName(accountName)
                         .signUpDate(signUpDate)
-                        .customerKey(customerKey)
+                        .customerPid(customerPid)
                         .build();
     }
 
@@ -48,13 +48,13 @@ public class AccountRepositoryTest {
         // given
         String accountName = "1234567801";
         String signUpDate = "20230103";
-        Long customerKey = (long) 0;
+        Long customerPid = (long) 0;
 
         accountDao = AccountDao
                         .builder()
                         .accountName(accountName)
                         .signUpDate(signUpDate)
-                        .customerKey(customerKey)
+                        .customerPid(customerPid)
                         .build();
 
         System.out.println(">>> Origin accountDao: " + accountDao.toString());
@@ -64,7 +64,7 @@ public class AccountRepositoryTest {
         System.out.println(">>> Saved accountDao: " + savedAccountDao);
 
         // then
-        assertThat(savedAccountDao.getKey()).isNotNull();
+        assertThat(savedAccountDao.getPid()).isNotNull();
         assertThat(savedAccountDao.getAccountName()).isEqualTo("1234567801");
         assertThat(savedAccountDao.getSignUpDate()).isEqualTo("20230103");
     }
